@@ -13,7 +13,7 @@ bind h eval 'focus left'
 bind l eval 'focus right'
 
 # don't remove windows from the window list as soon as window process exits.
-zombie kr #  k: destory window, r: resurrect window
+zombie ^dr #  k: destory window, r: resurrect window
 
 hardstatus alwayslastline "%{=}%{kw}[%m/%d %02c]%{mw} %-w%{=b wk}%n %t%{-}%+w %=%{kC} [ %H ] "
 
