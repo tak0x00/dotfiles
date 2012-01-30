@@ -51,6 +51,7 @@ alias reload="source ~/.zshrc"
 #alias ssh='ssh -o StrictHostKeyChecking no'
 
 export PERL_BADLANG=0
+export GREP_OPTIONS="--color=auto"
 
 function ssh_screen(){
 	eval server=\${$#}
