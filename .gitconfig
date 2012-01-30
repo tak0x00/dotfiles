@@ -1,6 +1,8 @@
 [alias]
-	co = checkout
-	ci = commit
-	st = status
+    co = checkout
+    ci = commit
+    st = status
 [color]
-	ui = auto
+    ui = auto
+[core]
+    pager = lv -c
