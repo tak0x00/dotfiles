@@ -13,16 +13,28 @@ setopt share_history
 setopt magic_equal_subst
 
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats '[%r:%b]'
-zstyle ':vcs_info:*' actionformats '[%r:%b|%a]'
-precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="%1(v|%F{grey}%1v%f|)"
+autoload -Uz is-at-least
+if is-at-least 4.3.7; then
+    autoload -Uz vcs_info
+    zstyle ':vcs_info:*' enable svn git
+    zstyle ':vcs_info:git:*' formats '[%r:%b]'
+    zstyle ':vcs_info:svn:*' formats '[%r]'
+    zstyle ':vcs_info:*' actionformats '[%r:%b|%a]'
+    preexec() {
+        _pre="$1"
+    }
+    precmd () {
+        case "${_pre}" in
+            cd*|svn*|git*)
+                psvar=()
+                LANG=C vcs_info
+                [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+                ;;
+        esac
+        return ${_r}
+    }
+    RPROMPT="%1(v|%F{default}%1v%f|)"
+fi
 
 
 HISTFILE=~/.zhistory
