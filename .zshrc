@@ -45,6 +45,10 @@ setopt HIST_IGNORE_DUPS
 #setopt prompt_subset
 autoload -U colors
 colors
+autoload -U compinit
+compinit
+setopt auto_pushd
+
 # Con
 #PROMPT="[%{${fg[white]}%}%n@%{${fg[green]}%}%d%{${fg[white]}%}%{${fg[default]}%}]%#"
 PROMPT="[%{${fg[default]}%}%n@%m:%{${fg[green]}%}%(5~,%-2~/.../%2~,%~)%{${fg[default]}%}%{${fg[default]}%}]%#"
