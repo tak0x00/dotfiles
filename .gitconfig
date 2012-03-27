@@ -6,3 +6,4 @@
     ui = auto
 [core]
     pager = lv -c
+    editor = vi

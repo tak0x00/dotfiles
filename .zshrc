@@ -38,7 +38,9 @@ fi
 
 
 HISTFILE=~/.zhistory
-SAVEHIST=500
+SAVEHIST=10000
+HISTSIZE=1000
+setopt HIST_IGNORE_DUPS
 
 #setopt prompt_subset
 autoload -U colors
@@ -50,6 +52,7 @@ PROMPT="[%{${fg[default]}%}%n@%m:%{${fg[green]}%}%(5~,%-2~/.../%2~,%~)%{${fg[def
 unsetopt auto_param_slash
 setopt no_clobber
 setopt correct correct_all
+
 compctl -g '(|.)*(-/)' cd pushed
 compctl -g '(|.)*(-/)' ls pushed
 
@@ -74,14 +77,14 @@ if [ x$TERM = xscreen ]; then
 fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-if [ -e ~/.keychain/$HOST-sh ]; then
-	source ~/.keychain/$HOST-sh
-else
-	keychain -q -k
-	keychain -q --nogui ~/.ssh/id_rsa.pxv id_rsa.monooki id_rsa.fluxflex
-	source ~/.keychain/$HOST-sh
-fi
-function exit() {
-	keychain -k
-	builtin exit
-}
+#if [ -e ~/.keychain/$HOST-sh ]; then
+#	source ~/.keychain/$HOST-sh
+#else
+#	keychain -q -k
+#	keychain -q --nogui ~/.ssh/id_rsa.pxv id_rsa.monooki id_rsa.fluxflex
+#	source ~/.keychain/$HOST-sh
+#fi
+#function exit() {
+#	keychain -k
+#	builtin exit
+#}
