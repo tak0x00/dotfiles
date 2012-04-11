@@ -38,8 +38,8 @@ fi
 
 
 HISTFILE=~/.zhistory
-SAVEHIST=10000
-HISTSIZE=1000
+SAVEHIST=100000
+HISTSIZE=10000
 setopt HIST_IGNORE_DUPS
 
 #setopt prompt_subset

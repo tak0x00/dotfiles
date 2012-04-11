@@ -40,4 +40,4 @@ encoding utf-8 utf-8
 cjkwidth on
 termcapinfo kterm 'cl=\E[H\E[2J'
 setenv SCREEN true
-
+layout new
