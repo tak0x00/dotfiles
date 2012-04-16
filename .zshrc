@@ -72,6 +72,11 @@ alias reload="source ~/.zshrc"
 export PERL_BADLANG=0
 export GREP_OPTIONS="--color=auto"
 
+if [ -e /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then
+    export LESS='-R'
+    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+fi
+
 function ssh_screen(){
 	eval server=\${$#}
 	screen -t $server ssh "$@"
