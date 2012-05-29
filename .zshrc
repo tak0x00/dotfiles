@@ -72,10 +72,15 @@ alias reload="source ~/.zshrc"
 export PERL_BADLANG=0
 export GREP_OPTIONS="--color=auto"
 
-if [ -e /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then
-    export LESS='-R'
-    export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
-fi
+# lessがeucjp扱えないのでlv
+export PAGER='lv'
+export LV='-Ou8'
+alias less='lv'
+alias source-highlight='source-highlight --failsafe'
+function lvc() {
+    source-highlight --infer-lang -f esc --style-file=esc.style -o STDOUT -i $1 | /usr/bin/lv -c
+}
+alias lv='lvc'
 
 function ssh_screen(){
 	eval server=\${$#}
