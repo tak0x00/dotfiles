@@ -38,6 +38,7 @@ defutf8 on
 defencoding utf8
 encoding utf-8 utf-8
 cjkwidth on
-termcapinfo kterm 'cl=\E[H\E[2J'
+#termcapinfo kterm 'cl=\E[H\E[2J'
+altscreen on
 setenv SCREEN true
 layout new
