@@ -26,7 +26,7 @@ bind ^z meta
 
 #bind s colon "at 0 exec ssh "
 bind t colon 'title '
-bind n colon 'sessionname '
+bind n colon 'number '
 
 bind r eval 'echo "Resize window"' 'command -c resize'
 bind -c resize ^]  command
