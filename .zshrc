@@ -86,7 +86,7 @@ function ssh_screen(){
 	eval server=\${$#}
 	screen -t $server ssh "$@"
 }
-if [ x$TERM = xscreen ]; then
+if [ -n "${STY}" ]; then
 	alias ssh=ssh_screen
 fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
