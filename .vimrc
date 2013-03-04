@@ -7,7 +7,7 @@ filetype indent on
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp,cp932
+set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 set fileformats=unix,dos,mac
 
 set ambiwidth=double
@@ -29,7 +29,7 @@ set hlsearch
 
 set autoindent
 "set smartindent
-set expandtab
+"set expandtab
 "set smarttab
 
 set tabstop=4
