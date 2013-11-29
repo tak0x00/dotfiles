@@ -22,6 +22,11 @@ setopt transient_rprompt
 bindkey "\e[3~" delete-char
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
+# alt-矢印で単語移動
+bindkey "^[[1;9D" backward-word
+bindkey "^[[1;9C" forward-word
+bindkey "^[[3~"   delete-word
+
 
 local vcs_infos=""
 autoload -Uz is-at-least
