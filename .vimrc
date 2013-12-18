@@ -1,5 +1,18 @@
 set nocompatible
 
+" vundle
+set rtp+=~/.vim/vundle.git
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'kana/vim-gf-user'
+Bundle 'kana/vim-gf-diff'
+Bundle 'tpope/vim-fugitive'
+Bundle 'ciaranm/inkpot'
+" Bundle 'w0ng/vim-hybrid'
+" Bundle 'nanotech/jellybeans.vim'
+syntax enable
+" colorscheme jellybeans
+
 syntax on
 filetype plugin on
 filetype indent on

@@ -2,8 +2,9 @@ PROMPT=""
 RPROMPT=""
 tabs -4
 
-export LANG=ja_JP.UTF8
-export LC_ALL=ja_JP.UTF8
+export LANG=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
+export SHELL=/bin/zsh
 #export LANG=en_US.UTF8
 #export LC_ALL=en_US
 #export LESSCHARSET=utf-8
@@ -105,7 +106,7 @@ alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 
 alias nslookup='nslookup -sil'
-#alias ls='ls -Fh'
+alias ls='ls -Fh'
 alias reload="source ~/.zshrc"
 #alias ssh='ssh -o StrictHostKeyChecking no'
 
@@ -113,18 +114,45 @@ export PERL_BADLANG=0
 export GREP_OPTIONS="--color=auto"
 
 # lessがeucjp扱えないのでlv
-export PAGER='lv'
-export LV='-Ou8'
-alias less='lv'
-alias source-highlight='source-highlight --failsafe'
-function lvc() {
-    source-highlight --infer-lang -f esc --style-file=esc.style -o STDOUT -i $1 | /usr/bin/lv -c
+#export PAGER='lv'
+#export LV='-Ou8'
+#alias less='lv'
+#alias source-highlight='source-highlight --failsafe'
+#function lvc() {
+#    source-highlight --infer-lang -f esc --style-file=esc.style -o STDOUT -i $1 | /usr/bin/lv -c
+#}
+#alias lv='lvc'
+
+function u()
+{
+    cd ./$(git rev-parse --show-cdup)
 }
-alias lv='lvc'
 
 function ssh_screen(){
 	eval server=\${$#}
-	screen -t $server ssh "$@"
+	if [ $server = tak002 ] || [ $server = tak001 ]; then
+		screen -t $server mosh "$@"
+	elif [ $server = stg ] || [ $server = stg7 ]; then
+		screen -t $server ssh gs6 -t "sudo -u admin ssh stg7.gree.jp"
+	elif [ $server = bs1-new ] || [ $server = bs1-new.pirate ] || [ $server = bs1-new.gree ]; then
+		screen -t $server ssh gs6 -t "sudo -u gree ssh bs1-new.pirate"
+	elif [ $server = bs1-new.admin ]; then
+		screen -t $server ssh gs6 -t "sudo -u admin ssh bs1-new.pirate"
+	elif [ $server = bs1 ] || [ $server = bs1.pirate ] || [ $server = bs1.gree ]; then
+		screen -t $server ssh gs6 -t "sudo -u gree ssh bs1.pirate"
+	elif [ $server = bs2 ] || [ $server = bs2.pirate ] || [ $server = bs2.gree ]; then
+		screen -t $server ssh gs6 -t "sudo -u gree ssh bs2.pirate"
+	elif [ $server = bs1.admin ]; then
+		screen -t $server ssh gs6 -t "sudo -u admin ssh bs1.pirate"
+	elif [ $server = bs2.admin ]; then
+		screen -t $server ssh gs6 -t "sudo -u admin ssh bs2.pirate"
+	elif [ $server = bs2 ] || [ $server = bs2.pirate ] || [ $server = bs2.gree ]; then
+		screen -t $server ssh gs6 -t "sudo -u gree ssh bs2.pirate"
+	elif [ $server = bs2.admin ]; then
+		screen -t $server ssh gs6 -t "sudo -u admin ssh bs2.pirate"
+	else
+		screen -t $server ssh "$@"
+	fi
 }
 if [ -n "${STY}" ]; then
 	alias ssh=ssh_screen

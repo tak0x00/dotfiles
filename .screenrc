@@ -20,7 +20,7 @@ termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 #multiuser on
 ##acladd tak
 startup_message off
-#bind s 
+bind s eval 'split'
 #bind s colon 'screen ssh '
 bind ^z meta
 
