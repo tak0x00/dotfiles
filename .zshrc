@@ -108,6 +108,8 @@ alias mkdir='nocorrect mkdir'
 alias nslookup='nslookup -sil'
 alias ls='ls -Fh'
 alias reload="source ~/.zshrc"
+alias less="less -R"
+
 #alias ssh='ssh -o StrictHostKeyChecking no'
 
 export PERL_BADLANG=0
@@ -170,3 +172,10 @@ fi
 #	keychain -k
 #	builtin exit
 #}
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# enhancd
+if [ -f "~/.enhancd/enhancd.sh" ]; then
+  source "~/.enhancd/enhancd.sh"
+fi

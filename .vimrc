@@ -20,7 +20,7 @@ filetype indent on
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8,euc-jp-ms
 set fileformats=unix,dos,mac
 
 set ambiwidth=double
