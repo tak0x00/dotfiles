@@ -3,7 +3,7 @@
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 git clone --depth 1 https://github.com/b4b4r07/enhancd ~/.enhancd
-~/.enhanced/init.sh
+~/.enhancd/init.sh
 
 if [ -e ~/.zshrc ]; then rm ~/.zshrc;fi;
 if [ -e ~/.zshenv ]; then rm ~/.zshenv;fi;
