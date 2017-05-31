@@ -14,7 +14,7 @@ bind l eval 'focus right'
 # don't remove windows from the window list as soon as window process exits.
 zombie ^dr #  k: destory window, r: resurrect window
 
-hardstatus alwayslastline "%{=}%{kw}[%m/%d %02c]%{mw} %-w%{=b wk}%n %t%{-}%+w %=%{kC} [ %H ] "
+hardstatus alwayslastline "%{=}%{kw}[%m/%d %02c:%s]%{mw} %-w%{=b wk}%n %t%{-}%+w %=%{kC} [ %H ] "
 termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 #multiuser on

@@ -113,7 +113,6 @@ alias less="less -R"
 #alias ssh='ssh -o StrictHostKeyChecking no'
 
 export PERL_BADLANG=0
-export GREP_OPTIONS="--color=auto"
 
 # lessがeucjp扱えないのでlv
 #export PAGER='lv'
@@ -176,6 +175,6 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # enhancd
-if [ -f "~/.enhancd/enhancd.sh" ]; then
-  source "~/.enhancd/enhancd.sh"
+if [ -f "~/.enhancd/init.sh" ]; then
+  source "~/.enhancd/init.sh"
 fi
