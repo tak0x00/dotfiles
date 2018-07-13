@@ -130,35 +130,6 @@ function u()
     cd ./$(git rev-parse --show-cdup)
 }
 
-function ssh_screen(){
-	eval server=\${$#}
-	if [ $server = tak002 ] || [ $server = tak001 ]; then
-		screen -t $server mosh "$@"
-	elif [ $server = stg ] || [ $server = stg7 ]; then
-		screen -t $server ssh gs6 -t "sudo -u admin ssh stg7.gree.jp"
-	elif [ $server = bs1-new ] || [ $server = bs1-new.pirate ] || [ $server = bs1-new.gree ]; then
-		screen -t $server ssh gs6 -t "sudo -u gree ssh bs1-new.pirate"
-	elif [ $server = bs1-new.admin ]; then
-		screen -t $server ssh gs6 -t "sudo -u admin ssh bs1-new.pirate"
-	elif [ $server = bs1 ] || [ $server = bs1.pirate ] || [ $server = bs1.gree ]; then
-		screen -t $server ssh gs6 -t "sudo -u gree ssh bs1.pirate"
-	elif [ $server = bs2 ] || [ $server = bs2.pirate ] || [ $server = bs2.gree ]; then
-		screen -t $server ssh gs6 -t "sudo -u gree ssh bs2.pirate"
-	elif [ $server = bs1.admin ]; then
-		screen -t $server ssh gs6 -t "sudo -u admin ssh bs1.pirate"
-	elif [ $server = bs2.admin ]; then
-		screen -t $server ssh gs6 -t "sudo -u admin ssh bs2.pirate"
-	elif [ $server = bs2 ] || [ $server = bs2.pirate ] || [ $server = bs2.gree ]; then
-		screen -t $server ssh gs6 -t "sudo -u gree ssh bs2.pirate"
-	elif [ $server = bs2.admin ]; then
-		screen -t $server ssh gs6 -t "sudo -u admin ssh bs2.pirate"
-	else
-		screen -t $server ssh "$@"
-	fi
-}
-if [ -n "${STY}" ]; then
-	alias ssh=ssh_screen
-fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 #if [ -e ~/.keychain/$HOST-sh ]; then
