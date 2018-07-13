@@ -27,7 +27,8 @@ bindkey "\e[4~" end-of-line
 bindkey "^[[1;9D" backward-word
 bindkey "^[[1;9C" forward-word
 bindkey "^[[3~"   delete-word
-
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
 
 local vcs_infos=""
 autoload -Uz is-at-least
